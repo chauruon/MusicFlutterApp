@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 class TabMusic extends StatefulWidget {
   const TabMusic({super.key});
@@ -53,6 +54,7 @@ class _TabMusicState extends State<TabMusic> {
 
   @override
   Widget build(BuildContext context) {
+    var logger = Logger();
 
     double blur = 1.0;
 
@@ -63,6 +65,7 @@ class _TabMusicState extends State<TabMusic> {
       itemBuilder: (context, index) {
         
         final item = musicList[index];
+        logger.d("movieTitle $item");
 
         return Container(
           margin: const EdgeInsets.only(top: 10,right: 15,left: 3,),

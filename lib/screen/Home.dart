@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_music/component/TabBarView/TabMusic.dart';
 
+import '../component/TabBarView/TabPlaylists.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -11,6 +13,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+
+
     return DefaultTabController(
       length: 6,
       child: Container(
@@ -29,7 +35,7 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 10,left: 5),
+              padding: const EdgeInsets.only(top: 10,left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -81,10 +87,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 15,right: 20,bottom: 10),
+                    padding: const EdgeInsets.only(top: 15,right: 10,bottom: 10),
                     child: Container(
                       height: 50,
-                      width: 380,
+                      width: width,
                       decoration: BoxDecoration(
                         color: const Color(0xFF31314F).withOpacity(0.9),
                         borderRadius: BorderRadius.circular(8),
@@ -140,9 +146,7 @@ class _HomeState extends State<Home> {
                     child: TabBarView(
                       children: [
                         const TabMusic(),
-                        Container(
-                          color: Colors.white,
-                        ),
+                        const TabPlaylists(),
                         Container(
                           color: Colors.amberAccent,
                         ),
