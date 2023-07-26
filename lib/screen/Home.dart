@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 15),
                             height: 50,
-                            width: 220,
+                            width: width - 90,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 hintText: "Search....",
@@ -113,7 +113,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.only(right: 10.0),
                             child: Icon(
                               Icons.search,
                               size: 30,
