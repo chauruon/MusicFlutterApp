@@ -74,20 +74,100 @@ class _TabPlaylistsState extends State<TabPlaylists> {
       itemCount: playList.length,
       itemBuilder: (context, index) {
         var item = playList[index];
-        
         logger.d("movieTitle $item");
         var image1 = item["image"];
 
-        // return Image(
-        //   image: imageAsset, // Replace with the actual image path
-        //   width: 20,
-        //   height: 20,
-        //   fit: BoxFit.cover, // Choose the appropriate fit for your use case
-        // );
-        return ListTile(
-          title: Text(item['title']),
-          subtitle: Text(item['name']),
-          leading: Image.asset(image1,width: 30,height: 30,),
+        return Container(
+          margin: const EdgeInsets.only(top: 10,right: 10,left: 0,),
+          padding: const EdgeInsets.only(top: 0,right: 10,),
+          decoration: BoxDecoration(
+            color: const Color(0xFF30314D),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromRGBO(155, 155, 155, 0.5),
+                blurRadius: blur ,
+                blurStyle: BlurStyle.solid,
+                offset: const Offset(0, -1),
+              ),
+
+              // Bottom Right
+              BoxShadow(
+                color: const Color.fromRGBO(155, 155, 155, 0.5),
+                blurRadius: blur + 1,
+                blurStyle: BlurStyle.solid,
+                offset: const Offset(-1, 0),
+              ),
+              
+              // Bottom Left
+              BoxShadow(
+                color: const Color.fromRGBO(155, 155, 155, 0.5),
+                blurRadius: blur,
+                offset: const Offset(2, 0),
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(image1,width: 90,fit: BoxFit.cover ),
+              ),
+              
+              const SizedBox(width: 15,),
+              InkWell(
+                // onTap: () {
+                //   Navigator.pushNamed(context, "musicPage");
+                // },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Imagine Dragons - Believer",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Text("Bass",
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(width: 5,),
+                        Text("-",
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.6),
+                            fontSize: 20,
+                          ),
+                        ),
+                        const SizedBox(width: 5,),
+                        Text("04:30",
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.6),
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              SizedBox(
+                height: 35,
+                width: 35,
+                child: Icon(
+                  Icons.more_vert,
+                  size: 25,
+                  color: Colors.white.withOpacity(0.5),
+                ),
+              )
+            ],
+          ),
         );
       }
     );

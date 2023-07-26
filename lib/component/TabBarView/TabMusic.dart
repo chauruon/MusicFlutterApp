@@ -60,7 +60,7 @@ class _TabMusicState extends State<TabMusic> {
 
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 15),
       itemCount: musicList.length,
       itemBuilder: (context, index) {
         
