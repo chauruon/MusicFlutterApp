@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_music/component/Header/header.dart';
 
 class PlayListPage extends StatefulWidget {
   const PlayListPage({super.key});
@@ -11,39 +12,25 @@ class PlayListPage extends StatefulWidget {
 class _PlayListPageState extends State<PlayListPage> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () {
-                    // Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    CupertinoIcons.back,
-                    color: Color(0xFF899CCF),
-                    size: 30,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    // Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.more_vert,
-                    color: Color(0xFF899CCF),
-                    size: 30,
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            const Color(0xFF303151).withOpacity(0.6),
+            const Color(0xFF303151).withOpacity(0.9),
+          ]
+        )
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+            children: const [
+              Header(),
+            ],
+          ),
       ),
     );
   }

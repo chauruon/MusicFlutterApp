@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_music/component/TabBarView/TabMusic.dart';
+import 'package:my_music/component/TabBarView/tab_music.dart';
+import 'package:my_music/component/TabBarView/tab_playlists.dart';
 
-import '../component/TabBarView/TabPlaylists.dart';
+import '../component/TabBarView/tab_favourites.dart';
+import '../ultils/styles.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,10 +15,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-
     double width = MediaQuery.of(context).size.width;
-
-
     return DefaultTabController(
       length: 6,
       child: Container(
@@ -46,9 +45,9 @@ class _HomeState extends State<Home> {
                       children: [
                         InkWell(
                           onTap: () {},
-                          child: const Icon(
+                          child: Icon(
                             Icons.sort_rounded,
-                            color: Color(0xFF899CCF),
+                            color: navyBlue,
                             size: 30,
                           ),
                         ),
@@ -147,9 +146,7 @@ class _HomeState extends State<Home> {
                       children: [
                         const TabMusic(),
                         const TabPlaylists(),
-                        Container(
-                          color: Colors.amberAccent,
-                        ),
+                        const TabFavourites(),
                         Container(
                           color: Colors.blue,
                         ),

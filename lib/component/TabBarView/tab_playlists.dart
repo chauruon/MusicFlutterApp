@@ -1,75 +1,117 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:my_music/screen/Page/play_list_page.dart';
 
-class TabMusic extends StatefulWidget {
-  const TabMusic({super.key});
+class TabPlaylists extends StatefulWidget {
+  const TabPlaylists({super.key});
 
   @override
-  State<TabMusic> createState() => _TabMusicState();
+  State<TabPlaylists> createState() => _TabPlaylistsState();
 }
 
-class _TabMusicState extends State<TabMusic> {
-  final List musicList = [
+class _TabPlaylistsState extends State<TabPlaylists> {
+
+  final List playList = [
     {
       "id":1,
       "name":"1",
       "title":"rrrrrr",
+      "image": "images/products/nhac.jpg",
     },
     {
       "id":2,
       "name":"12",
       "title":"qqqq",
+      "image":"images/products/nhac.jpg",
     },
     {
       "id":3,
       "name":"123",
       "title":"wwww",
+      "image":"images/products/nhac.jpg",
     },
     {
       "id":4,
       "name":"1234",
       "title":"rrrrrr",
+      "image":"images/products/nhac.jpg",
     },
     {
       "id":5,
       "name":"12345",
       "title":"eeee",
+      "image":"images/products/nhac.jpg",
     },
     {
       "id":6,
       "name":"123456",
       "title":"ttt",
+      "image":"images/products/nhac.jpg",
     },
     {
       "id":7,
       "name":"1234567",
       "title":"yyyyy",
+      "image":"images/products/nhac.jpg",
     },
     {
       "id":8,
       "name":"12345678",
       "title":"kkkk",
+      "image":"images/products/nhac.jpg",
+    },
+    {
+      "id":9,
+      "name":"12345678",
+      "title":"kkkk",
+      "image":"images/products/nhac.jpg",
+    },
+    {
+      "id":10,
+      "name":"12345678",
+      "title":"kkkk",
+      "image":"images/products/nhac.jpg",
+    },
+    {
+      "id": 11,
+      "name":"12345678",
+      "title":"kkkk",
+      "image":"images/products/nhac.jpg",
+    },
+    {
+      "id":12,
+      "name":"12345678",
+      "title":"kkkk",
+      "image":"images/products/nhac.jpg",
+    },
+    {
+      "id":13,
+      "name":"12345678",
+      "title":"kkkk",
+      "image":"images/products/nhac.jpg",
     },
   ];
 
+
+
+
   @override
   Widget build(BuildContext context) {
-    var logger = Logger();
-
     double blur = 1.0;
+    var logger = Logger();
 
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(bottom: 15),
-      itemCount: musicList.length,
+      itemCount: playList.length,
       itemBuilder: (context, index) {
-        
-        final item = musicList[index];
-        logger.d("movieTitle $item");
+        var item = playList[index];
+        // logger.d("movieTitle $item");
+        var image1 = item["image"];
 
         return Container(
-          margin: const EdgeInsets.only(top: 10,right: 15,left: 3,),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          margin: const EdgeInsets.only(top: 10,right: 10,left: 0,),
+          padding: const EdgeInsets.only(top: 0,right: 10,),
           decoration: BoxDecoration(
             color: const Color(0xFF30314D),
             borderRadius: BorderRadius.circular(10),
@@ -99,18 +141,22 @@ class _TabMusicState extends State<TabMusic> {
           ),
           child: Row(
             children: [
-              Text("${item['id']}",
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(image1,width: 90,fit: BoxFit.cover ),
               ),
+              
               const SizedBox(width: 15,),
               InkWell(
-                // onTap: () {
-                //   Navigator.pushNamed(context, "musicPage");
-                // },
+                onTap: () {
+                  // Navigator.pushNamed(context, "playlistPage");
+                  Navigator.push(context, 
+                    MaterialPageRoute(
+                      builder: (context) => const PlayListPage(),
+                    ),
+                    // (route) => false);
+                  );
+                },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -149,23 +195,19 @@ class _TabMusicState extends State<TabMusic> {
                 ),
               ),
               const Spacer(),
-              Container(
+              SizedBox(
                 height: 35,
                 width: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: const Icon(
-                  Icons.play_arrow,
+                child: Icon(
+                  Icons.more_vert,
                   size: 25,
-                  color: Color(0xFF31314F),
+                  color: Colors.white.withOpacity(0.5),
                 ),
               )
             ],
           ),
         );
-      },
+      }
     );
   }
 }

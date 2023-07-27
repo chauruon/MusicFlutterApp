@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_music/screen/Home.dart';
-import 'package:my_music/screen/HomeScreen.dart';
+import 'package:my_music/screen/Page/play_list_page.dart';
+import 'package:my_music/screen/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,10 +26,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      // routes: {
+      //   'playlistPage' :(context) => const PlayListPage(),
+      // },
       home: GestureDetector(
         onTap: () {
           FocusManager.instance.primaryFocus?.unfocus();
         },
+        
         child: const Home(),
       ),
     );
