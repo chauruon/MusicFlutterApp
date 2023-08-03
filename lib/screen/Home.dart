@@ -34,12 +34,12 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(top: 10,left: 10),
+              padding: const EdgeInsets.only(top: 13,),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:const EdgeInsets.only(right: 5),
+                    padding:const EdgeInsets.only(right: 5,left: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
                   ),
                   const SizedBox(height: 15,),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
+                    padding:  EdgeInsets.only(bottom: 5,left: pLeft_13),
                     child: Text(
                       "ASDJKFH ",
                       style: TextStyle(
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.only(bottom: 5, left: pLeft_13),
                     child: Text(
                       "Mày muốn nghe cái quần què gì đây?",
                       style: TextStyle(
@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 15,right: 10,bottom: 10),
+                    padding: EdgeInsets.only(top: 15,right: 10,bottom: 10,left: pLeft_13),
                     child: Container(
                       height: 50,
                       width: width,
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 15),
                             height: 50,
-                            width: width - 90,
+                            width: width - 100,
                             child: TextFormField(
                               decoration: InputDecoration(
                                 hintText: "Search....",
@@ -123,6 +123,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
+                  
                   const TabBar(
                     isScrollable: true,
                     labelStyle: TextStyle(
@@ -148,6 +149,7 @@ class _HomeState extends State<Home> {
                         const TabPlaylists(),
                         const TabFavourites(),
                         Container(
+                          width: MediaQuery.of(context).size.width,
                           color: Colors.blue,
                         ),
                         Container(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_music/screen/Page/play_list_page.dart';
+import 'package:my_music/provider/counter_provider.dart';
+import 'package:my_music/provider/user_provider.dart';
 import 'package:my_music/screen/home.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,22 +10,23 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: GestureDetector(
-        onTap: () {
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        
-        child: const Home(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CounterProvider>(create: (_) => CounterProvider()),
+        ChangeNotifierProvider<UserProvider>(create: (_) => UserProvider()),
+        // Add more providers here if needed.
+      ],
+      child: MaterialApp(
+        title: 'My App',
+        debugShowCheckedModeBanner: false,
+        home: GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: const Home(),
+        ),
       ),
     );
   }

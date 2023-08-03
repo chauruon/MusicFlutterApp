@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:my_music/screen/Page/play_list_page.dart';
 
+import '../gradient_shadow_image/gradient_shadow_image.dart';
+
 class TabPlaylists extends StatefulWidget {
   const TabPlaylists({super.key});
 
@@ -102,62 +104,79 @@ class _TabPlaylistsState extends State<TabPlaylists> {
 
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.only(bottom: 15),
       itemCount: playList.length,
       itemBuilder: (context, index) {
         var item = playList[index];
-        // logger.d("movieTitle $item");
         var image1 = item["image"];
+        
+        // DecorationImage? decorationImage;
 
-        return Container(
-          margin: const EdgeInsets.only(top: 10,right: 10,left: 0,),
-          padding: const EdgeInsets.only(top: 0,right: 10,),
-          decoration: BoxDecoration(
-            color: const Color(0xFF30314D),
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: const Color.fromRGBO(155, 155, 155, 0.5),
-                blurRadius: blur ,
-                blurStyle: BlurStyle.solid,
-                offset: const Offset(0, -1),
-              ),
+        // if (image1 is String) {
+        //   decorationImage = DecorationImage(
+        //     image: AssetImage(image1),
+        //     fit: BoxFit.cover,
+        //   );
+        // }
 
-              // Bottom Right
-              BoxShadow(
-                color: const Color.fromRGBO(155, 155, 155, 0.5),
-                blurRadius: blur + 1,
-                blurStyle: BlurStyle.solid,
-                offset: const Offset(-1, 0),
+        return GestureDetector(
+          onTap: () { 
+            Navigator.push(context, 
+              MaterialPageRoute(
+                builder: (context) => const PlayListPage(),
               ),
-              
-              // Bottom Left
-              BoxShadow(
-                color: const Color.fromRGBO(155, 155, 155, 0.5),
-                blurRadius: blur,
-                offset: const Offset(2, 0),
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(image1,width: 90,fit: BoxFit.cover ),
-              ),
-              
-              const SizedBox(width: 15,),
-              InkWell(
-                onTap: () {
-                  // Navigator.pushNamed(context, "playlistPage");
-                  Navigator.push(context, 
-                    MaterialPageRoute(
-                      builder: (context) => const PlayListPage(),
-                    ),
-                    // (route) => false);
-                  );
-                },
-                child: Column(
+            );
+           },
+          child: Container(
+            height: 130,
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.only(top: 10,right: 10,left: 7),
+            decoration: BoxDecoration(
+              color: const Color(0xFF30314D),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color.fromRGBO(155, 155, 155, 0.5),
+                  blurRadius: blur ,
+                  blurStyle: BlurStyle.solid,
+                  offset: const Offset(0, 2),
+                ),
+        
+                BoxShadow(
+                  color: const Color.fromRGBO(155, 155, 155, 0.5),
+                  blurRadius: blur,
+                  blurStyle: BlurStyle.solid,
+                  offset: const Offset(0, -2),
+                ),
+                
+                BoxShadow(
+                  color: const Color.fromRGBO(155, 155, 155, 0.5),
+                  blurRadius: blur + 4,
+                  offset: const Offset(4, 0),
+                ),
+                BoxShadow(
+                  color: const Color.fromRGBO(155, 155, 155, 0.5),
+                  blurRadius: blur + 4,
+                  offset: const Offset(-2, 0),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                GradientShadowImage(
+                  imageUrl: image1,
+                  widthImg: 100,
+                  colorsGradient: const [
+                    Colors.transparent,
+                    Color(0xFF30314D),
+                  ],
+                  beginAlign: Alignment.centerLeft,
+                  endAlign: Alignment.centerRight,
+                  stopAlign: const [0, 1],
+                  network: false,
+                ),
+                
+                const SizedBox(width: 15,),
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text("Imagine Dragons - Believer",
@@ -193,18 +212,18 @@ class _TabPlaylistsState extends State<TabPlaylists> {
                     ),
                   ],
                 ),
-              ),
-              const Spacer(),
-              SizedBox(
-                height: 35,
-                width: 35,
-                child: Icon(
-                  Icons.more_vert,
-                  size: 25,
-                  color: Colors.white.withOpacity(0.5),
-                ),
-              )
-            ],
+                const Spacer(),
+                SizedBox(
+                  height: 35,
+                  width: 35,
+                  child: Icon(
+                    Icons.more_vert,
+                    size: 25,
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                )
+              ],
+            ),
           ),
         );
       }

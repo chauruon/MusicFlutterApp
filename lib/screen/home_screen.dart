@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 15),
+                      padding: const EdgeInsets.only(right: 15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -57,9 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 30,),
+                    const SizedBox(height: 30,),
                     Padding(
-                      padding: EdgeInsets.only(bottom: 5),
+                      padding: const EdgeInsets.only(bottom: 5),
                       child: Text(
                         "ASDJKFH ",
                         style: TextStyle(
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: 5),
+                      padding:const EdgeInsets.only(bottom: 5),
                       child: Text(
                         "Mày muốn nghe cái quần què gì đây?",
                         style: TextStyle(
@@ -81,18 +81,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 15,right: 20,bottom: 20),
+                      padding: const EdgeInsets.only(top: 15,right: 20,bottom: 20),
                       child: Container(
                         height: 50,
                         width: 380,
                         decoration: BoxDecoration(
-                          color: Color(0xFF31314F).withOpacity(0.9),
+                          color: const Color(0xFF31314F).withOpacity(0.9),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 15),
+                              margin:const EdgeInsets.symmetric(horizontal: 15),
                               height: 50,
                               width: 200,
                               child: TextFormField(
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              padding:const EdgeInsets.symmetric(horizontal: 10),
                               child: Icon(
                                 Icons.search,
                                 size: 30,

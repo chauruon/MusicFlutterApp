@@ -13,8 +13,8 @@ class Header extends StatefulWidget {
 class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
-    bool state_back = false;
-    bool state_drawer = true;
+    bool stateBack = false;
+    bool stateDrawer = true;
 
     return SafeArea(
       child: Container(
@@ -36,14 +36,14 @@ class _HeaderState extends State<Header> {
                       // }
 
                       // ignore: dead_code
-                      if (state_back) {
+                      if (stateBack) {
                         Navigator.pop(context);
                       // ignore: dead_code
-                      }else if(state_drawer){
+                      }else if(stateDrawer){
                         Navigator.pop(context);
                       }
                     },
-                    child: state_back
+                    child: stateBack
                       // ignore: dead_code
                       ? Icon(
                           CupertinoIcons.back,

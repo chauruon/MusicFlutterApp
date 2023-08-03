@@ -71,3 +71,5 @@ TextStyle pLocation = GoogleFonts.poppins(
 var medium = 30.0;
 var small = 16.0;
 var xsmall = 10.0;
+
+var pLeft_13  = 13.0;
