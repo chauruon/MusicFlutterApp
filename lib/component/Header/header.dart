@@ -13,7 +13,8 @@ class Header extends StatefulWidget {
 class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
-    bool set_icon = false;
+    bool state_back = false;
+    bool state_drawer = true;
 
     return SafeArea(
       child: Container(
@@ -22,15 +23,27 @@ class _HeaderState extends State<Header> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              // color: Colors.red,
               alignment: Alignment.centerLeft,
               child: Column(
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      // switch (expression) {
+                      //   case value:
+                          
+                      //     break;
+                      //   default:
+                      // }
+
+                      // ignore: dead_code
+                      if (state_back) {
+                        Navigator.pop(context);
+                      // ignore: dead_code
+                      }else if(state_drawer){
+                        Navigator.pop(context);
+                      }
                     },
-                    child: set_icon
+                    child: state_back
                       // ignore: dead_code
                       ? Icon(
                           CupertinoIcons.back,
@@ -38,7 +51,7 @@ class _HeaderState extends State<Header> {
                           size: 30,
                         )
                       : Icon(
-                          Icons.arrow_back,
+                          Icons.sort_rounded,
                           color: navyBlue,
                           size: 30,
                         ),
