@@ -54,11 +54,19 @@ class _HomeState extends State<Home> {
                         InkWell(
                           onTap: () {},
                           child: const Icon(
+                            Icons.enhanced_encryption_outlined,
+                            color: Color(0xFF899CCF),
+                            size: 30,
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child:  const Icon(
                             Icons.more_vert,
                             color: Color(0xFF899CCF),
                             size: 30,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

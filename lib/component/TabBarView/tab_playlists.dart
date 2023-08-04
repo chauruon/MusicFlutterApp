@@ -104,6 +104,7 @@ class _TabPlaylistsState extends State<TabPlaylists> {
 
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
+      padding: const EdgeInsets.only(bottom: 10.0),
       itemCount: playList.length,
       itemBuilder: (context, index) {
         var item = playList[index];
@@ -127,42 +128,49 @@ class _TabPlaylistsState extends State<TabPlaylists> {
             );
            },
           child: Container(
-            height: 130,
+            height: 80,
             width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(top: 10,right: 10,left: 7),
+            margin: const EdgeInsets.only(top: 15,right: 10,left: 7),
             decoration: BoxDecoration(
               color: const Color(0xFF30314D),
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
+                // Dưới
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
-                  blurRadius: blur ,
+                  blurRadius: blur + 4,
                   blurStyle: BlurStyle.solid,
                   offset: const Offset(0, 2),
                 ),
         
+                // Trên
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
-                  blurRadius: blur,
+                  blurRadius: blur + 4,
                   blurStyle: BlurStyle.solid,
                   offset: const Offset(0, -2),
                 ),
                 
+                // Phải
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
                   blurRadius: blur + 4,
-                  offset: const Offset(4, 0),
+                  offset: const Offset(2, 0),
                 ),
+
+                // Trái
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
                   blurRadius: blur + 4,
-                  offset: const Offset(-2, 0),
+                  offset: const Offset(-3, 0),
                 ),
               ],
             ),
             child: Row(
               children: [
                 GradientShadowImage(
+                  // padding: const EdgeInsets.only(left: 5.0),
+                  // left: 5.0,
                   imageUrl: image1,
                   widthImg: 100,
                   colorsGradient: const [
@@ -175,9 +183,10 @@ class _TabPlaylistsState extends State<TabPlaylists> {
                   network: false,
                 ),
                 
-                const SizedBox(width: 15,),
+                const SizedBox(width: 10,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Imagine Dragons - Believer",
                       style: TextStyle(

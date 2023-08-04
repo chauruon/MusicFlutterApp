@@ -7,11 +7,24 @@ class GradientShadowImage extends StatelessWidget {
   final double? heightImg;
   final double? widthImg;
   final double widthOpacity;
+
+  ///  if request image from server you set network to true
   final bool network;
+  
+  /// if you want to use margin and padding then you have to use top, left, right, bottom  to align the image.
+  ///  Which side margin and padding do you use, use top, left, right, bottom that side? 
+  final EdgeInsetsGeometry? margin;
+
+  /// if you want to use margin and padding then you have to use top, left, right, bottom  to align the image.
+  ///  Which side margin and padding do you use, use top, left, right, bottom that side? 
+  final EdgeInsetsGeometry? padding;
+  
+  // gradient
   final List<Color> colorsGradient;
   final AlignmentGeometry beginAlign;
   final AlignmentGeometry endAlign;
   final List<double>? stopAlign;
+
 
   // Position
   final double? left;
@@ -47,6 +60,12 @@ class GradientShadowImage extends StatelessWidget {
     this.heightImg,
     this.widthImg = 90,
     this.widthOpacity = w/2,
+    
+    /// if use spacing you must use top, left, right, bottom
+    this.padding,
+    this.margin,
+
+    // gradient
     this.stopAlign,
     this.beginAlign = Alignment.topCenter,
     this.endAlign = Alignment.bottomCenter,
@@ -66,8 +85,8 @@ class GradientShadowImage extends StatelessWidget {
     this.bottomLeft,
     this.bottomRight,
   }): assert(left == null || right == null || width == null),
-       assert(top == null || bottom == null || height == null),
-       assert(
+      assert(top == null || bottom == null || height == null),
+      assert(
         radiusAround == null || 
         topRight == null ||
         topLeft == null || 
@@ -81,32 +100,41 @@ class GradientShadowImage extends StatelessWidget {
       child: Stack(
         children: [
           network ? 
-            ClipRRect(
-              borderRadius: BorderRadius.circular(radiusAround!),
-              child: Image.network(
-                imageUrl,
-                height: heightImg,
-                width: widthImg,
-                fit: BoxFit.cover,
+            Container(
+              margin: margin,
+              padding: padding,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(radiusAround!),
+            
+                child: Image.network(
+                  imageUrl,
+                  height: heightImg,
+                  width: widthImg,
+                  fit: BoxFit.cover,
+                ),
               ),
             )
           :
-            ClipRRect(
-              borderRadius: (topRight == null || topLeft == null || bottomLeft == null || bottomRight == null) ? 
-                  BorderRadius.circular(radiusAround!) 
-                :
-                BorderRadius.only(
-                  topRight: topRight != null ? Radius.circular(topRight!) : Radius.zero,
-                  topLeft: topLeft != null ? Radius.circular(topLeft!) : Radius.zero,
-                  bottomLeft: bottomLeft != null ? Radius.circular(bottomLeft!) : Radius.zero,
-                  bottomRight: bottomRight != null ? Radius.circular(bottomRight!) : Radius.zero,
+            Container(
+              margin: margin,
+              padding: padding,
+              child: ClipRRect(
+                borderRadius: (topRight == null || topLeft == null || bottomLeft == null || bottomRight == null) ? 
+                    BorderRadius.circular(radiusAround!) 
+                  :
+                  BorderRadius.only(
+                    topRight: topRight != null ? Radius.circular(topRight!) : Radius.zero,
+                    topLeft: topLeft != null ? Radius.circular(topLeft!) : Radius.zero,
+                    bottomLeft: bottomLeft != null ? Radius.circular(bottomLeft!) : Radius.zero,
+                    bottomRight: bottomRight != null ? Radius.circular(bottomRight!) : Radius.zero,
+                  ),
+            
+                child: Image.asset(
+                  imageUrl,
+                  height: heightImg,
+                  width: widthImg,
+                  fit: BoxFit.cover,
                 ),
-
-              child: Image.asset(
-                imageUrl,
-                height: heightImg,
-                width: widthImg,
-                fit: BoxFit.cover,
               ),
             ),
             
