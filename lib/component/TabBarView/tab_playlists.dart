@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:my_music/screen/Page/play_list_page.dart';
 
-import '../gradient_shadow_image/gradient_shadow_image.dart';
+import '../box_shadow/gradient_shadow_image.dart';
 
 class TabPlaylists extends StatefulWidget {
   const TabPlaylists({super.key});
@@ -137,31 +137,33 @@ class _TabPlaylistsState extends State<TabPlaylists> {
               boxShadow: [
                 // Dưới
                 BoxShadow(
-                  color: const Color.fromRGBO(155, 155, 155, 0.5),
-                  blurRadius: blur + 4,
-                  blurStyle: BlurStyle.solid,
+                  color: const Color.fromRGBO(155, 155, 155, 0.5).withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: blur + 2,
                   offset: const Offset(0, 2),
                 ),
         
                 // Trên
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
-                  blurRadius: blur + 4,
-                  blurStyle: BlurStyle.solid,
+                  spreadRadius: 1,
+                  blurRadius: blur + 2,
                   offset: const Offset(0, -2),
                 ),
                 
                 // Phải
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
-                  blurRadius: blur + 4,
+                  spreadRadius: 1,
+                  blurRadius: blur + 2,
                   offset: const Offset(2, 0),
                 ),
 
                 // Trái
                 BoxShadow(
                   color: const Color.fromRGBO(155, 155, 155, 0.5),
-                  blurRadius: blur + 4,
+                  spreadRadius: 1,
+                  blurRadius: blur + 2,
                   offset: const Offset(-3, 0),
                 ),
               ],
@@ -169,8 +171,6 @@ class _TabPlaylistsState extends State<TabPlaylists> {
             child: Row(
               children: [
                 GradientShadowImage(
-                  // padding: const EdgeInsets.only(left: 5.0),
-                  // left: 5.0,
                   imageUrl: image1,
                   widthImg: 100,
                   colorsGradient: const [

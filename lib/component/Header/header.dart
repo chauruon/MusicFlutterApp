@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:my_music/ultils/styles.dart';
 
 
-class Header extends StatefulWidget {
-  const Header({super.key});
+class Header extends StatelessWidget {
+  
+  final bool stateBack;
+  
+  final IconData? iconLeft;
+  final IconData? iconRight;
 
-  @override
-  State<Header> createState() => _HeaderState();
-}
+  const Header({
+    super.key,
+    required this.stateBack,
+    this.iconLeft,
+    this.iconRight,
+  });
 
-class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
-    bool stateBack = false;
-    bool stateDrawer = true;
 
     return SafeArea(
       child: Container(
@@ -28,33 +32,27 @@ class _HeaderState extends State<Header> {
                 children: [
                   InkWell(
                     onTap: () {
-                      // switch (expression) {
-                      //   case value:
-                          
-                      //     break;
-                      //   default:
-                      // }
-
-                      // ignore: dead_code
                       if (stateBack) {
                         Navigator.pop(context);
-                      // ignore: dead_code
-                      }else if(stateDrawer){
+                      }else {
                         Navigator.pop(context);
                       }
                     },
-                    child: stateBack
-                      // ignore: dead_code
-                      ? Icon(
+                    child: LayoutBuilder(builder: (context, constraints) { 
+                      if(stateBack){
+                        return Icon(
                           CupertinoIcons.back,
                           color: navyBlue,
                           size: 30,
-                        )
-                      : Icon(
+                        );
+                      }else{
+                        return Icon(
                           Icons.sort_rounded,
                           color: navyBlue,
                           size: 30,
-                        ),
+                        );
+                      }
+                    }),
                   ),
                 ],
               ),

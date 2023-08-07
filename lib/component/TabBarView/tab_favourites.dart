@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../gradient_shadow_image/gradient_shadow_image.dart';
+import '../box_shadow/gradient_shadow_image.dart';
 
 class TabFavourites extends StatefulWidget {
   const TabFavourites({super.key});

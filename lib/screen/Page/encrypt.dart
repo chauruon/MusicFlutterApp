@@ -4,6 +4,8 @@ import 'package:logger/logger.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
 
+import 'package:my_music/component/Header/header.dart';
+
 
 
 class EncryptData extends StatefulWidget {
@@ -18,7 +20,16 @@ class _EncryptDataState extends State<EncryptData> {
 
   @override
   Widget build(BuildContext context) {
-
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: const [
+            Header(
+              stateBack: true,
+            ),
+          ],
+        )
+      ),
+    );
   }
 }

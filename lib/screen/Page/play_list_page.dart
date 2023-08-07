@@ -27,7 +27,9 @@ class _PlayListPageState extends State<PlayListPage> {
         body: Column(
           mainAxisSize: MainAxisSize.max,
             children: const [
-              Header(),
+              Header(
+                stateBack: true,
+              ),
             ],
           ),
       ),

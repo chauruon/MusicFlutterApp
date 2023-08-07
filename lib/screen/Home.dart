@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_music/component/TabBarView/tab_collections.dart';
 import 'package:my_music/component/TabBarView/tab_music.dart';
+import 'package:my_music/component/TabBarView/tab_new.dart';
 import 'package:my_music/component/TabBarView/tab_playlists.dart';
+import 'package:my_music/component/TabBarView/tab_trending.dart';
 
 import '../component/TabBarView/tab_favourites.dart';
 import '../ultils/styles.dart';
+import 'Page/encrypt.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -51,22 +55,36 @@ class _HomeState extends State<Home> {
                             size: 30,
                           ),
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: const Icon(
-                            Icons.enhanced_encryption_outlined,
-                            color: Color(0xFF899CCF),
-                            size: 30,
-                          ),
+                        Row(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(context, 
+                                  MaterialPageRoute(
+                                    builder: (context) => const EncryptData(),
+                                  ),
+                                );
+                              },
+                              child: const Icon(
+                                Icons.enhanced_encryption_outlined,
+                                color: Color(0xFF899CCF),
+                                size: 30,
+                              ),
+                            ),
+                            const SizedBox(width: 15,),
+                            InkWell(
+                              onTap: () {
+                                
+                              },
+                              child:  const Icon(
+                                Icons.more_vert,
+                                color: Color(0xFF899CCF),
+                                size: 30,
+                              ),
+                            ),
+                          ],
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child:  const Icon(
-                            Icons.more_vert,
-                            color: Color(0xFF899CCF),
-                            size: 30,
-                          ),
-                        ),
+                        
                       ],
                     ),
                   ),
@@ -149,23 +167,16 @@ class _HomeState extends State<Home> {
                       Tab(text: "New",),
                     ],
                   ),
-                  Flexible(
+                  const Flexible(
                     flex: 1,
                     child: TabBarView(
                       children: [
-                        const TabMusic(),
-                        const TabPlaylists(),
-                        const TabFavourites(),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          color: Colors.blue,
-                        ),
-                        Container(
-                          color: Colors.red,
-                        ),
-                        Container(
-                          color: Colors.pink,
-                        ),
+                        TabMusic(),
+                        TabPlaylists(),
+                        TabFavourites(),
+                        TabTrending(),
+                        TabCollections(),
+                        TabNew(),
                       ],
                     ),
                   ),
