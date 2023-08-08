@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:my_music/screen/Page/play_list_page.dart';
+import 'package:my_music/screen/page/play_list_page.dart';
 
 import '../box_shadow/gradient_shadow_image.dart';
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_music/component/TabBarView/tab_collections.dart';
-import 'package:my_music/component/TabBarView/tab_music.dart';
-import 'package:my_music/component/TabBarView/tab_new.dart';
-import 'package:my_music/component/TabBarView/tab_playlists.dart';
-import 'package:my_music/component/TabBarView/tab_trending.dart';
+import 'package:my_music/component/tab_bar_view/tab_collections.dart';
+import 'package:my_music/component/tab_bar_view/tab_music.dart';
+import 'package:my_music/component/tab_bar_view/tab_new.dart';
+import 'package:my_music/component/tab_bar_view/tab_playlists.dart';
+import 'package:my_music/component/tab_bar_view/tab_trending.dart';
 
-import '../component/TabBarView/tab_favourites.dart';
+import '../component/tab_bar_view/tab_favourites.dart';
 import '../ultils/styles.dart';
-import 'Page/encrypt.dart';
+import 'page/encrypt.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

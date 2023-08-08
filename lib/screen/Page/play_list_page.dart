@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_music/component/Header/header.dart';
+import 'package:my_music/component/header/header.dart';
 
 class PlayListPage extends StatefulWidget {
   const PlayListPage({super.key});
