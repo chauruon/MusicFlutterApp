@@ -1,11 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:crypto/crypto.dart';
-import 'dart:convert';
-
+import 'package:my_music/component/encription_decryption/my_encription_decryption.dart';
 import 'package:my_music/component/header/header.dart';
 
+import '../../ultils/env.dart';
+
+
+
+
+
+var logger = Logger();
 
 
 class EncryptData extends StatefulWidget {
@@ -16,20 +20,29 @@ class EncryptData extends StatefulWidget {
 }
 
 class _EncryptDataState extends State<EncryptData> {
-  var logger = Logger();
-
   @override
   Widget build(BuildContext context) {
+    final utc = DateTime.now().toUtc();
+    logger.d('utc: $utc');
+    final password = '$utc$userId';
+
+
+    final encodedPassword =  MyEncriptionDecryption.encodePassword(password, signatureKeySalt);
+    logger.d("Encoded Password: $encodedPassword");
+
+    // final encryptWithAESKey = MyEncriptionDecryption.encryptWithAESKey(encodedPassword);
+    // logger.d("encryptWithAESKey: $encryptWithAESKey");
+    
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: const [
-            Header(
-              stateBack: true,
-            ),
+            Header(stateBack: true,),
           ],
         )
       ),
     );
   }
+  
+  
 }
