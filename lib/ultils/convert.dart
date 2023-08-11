@@ -1,4 +1,5 @@
 
+import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 var logger = Logger();
 
@@ -44,6 +45,13 @@ class Convert {
     }
   }
 
+  static DateTime convertToDateUtc(String formattedDate) {
+    DateTime utcDateTime = DateFormat('dd-MM-yyyy').parse(formattedDate,true);
+    // var utcDateTime = dateTime.toUtc();
+    logger.d("utcDateTime:   $utcDateTime");
+    return utcDateTime;
+  }
+
 
   /// Get current date by timestamp. 
   ///  Return is int
@@ -52,7 +60,3 @@ class Convert {
     return timestamp;
   }
 }
-
-
-
-

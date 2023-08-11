@@ -8,6 +8,7 @@ import 'package:my_music/component/tab_bar_view/tab_trending.dart';
 import '../component/tab_bar_view/tab_favourites.dart';
 import '../ultils/styles.dart';
 import 'page/encrypt.dart';
+import 'page/login.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -71,6 +72,22 @@ class _HomeState extends State<Home> {
                                 size: 30,
                               ),
                             ),
+                            const SizedBox(width: 15,),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(context, 
+                                  MaterialPageRoute(
+                                    builder: (context) => const LoginScreen(),
+                                  ),
+                                );
+                              },
+                              child: const Icon(
+                                Icons.login,
+                                color: Color(0xFF899CCF),
+                                size: 30,
+                              ),
+                            ),
+                            
                             const SizedBox(width: 15,),
                             InkWell(
                               onTap: () {

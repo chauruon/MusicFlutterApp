@@ -65,10 +65,20 @@ class _TabMusicState extends State<TabMusic> {
   
     // String date = \convertTimes
     var timestamps = TimeFormat.convertTimes(timestamp);
-    TimeFormat.convertToUtc(timestamps);
+    TimeFormat.convertToDateUtc(timestamps);
     // TimeFormat.formatTimestamp(timestamp);
     // logger.d("date: $date"); 
 
+
+    DateTime localTime = DateTime.now();
+    logger.d("localTime ${localTime.toUtc()}");
+
+    // Convert local time to UTC using DateFormat
+    DateFormat utcFormatter = DateFormat("HH:mm:ss");
+    logger.d("utcFormatter $utcFormatter");
+
+    String utcTimeString = DateFormat("HH:mm:ss").format(localTime.toUtc());
+    logger.d("utcTimeString $utcTimeString");
 
 
 
