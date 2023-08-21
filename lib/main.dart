@@ -3,8 +3,11 @@ import 'package:my_music/provider/counter_provider.dart';
 import 'package:my_music/provider/user_provider.dart';
 import 'package:my_music/screen/home.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 

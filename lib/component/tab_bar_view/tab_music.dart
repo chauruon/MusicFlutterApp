@@ -71,14 +71,14 @@ class _TabMusicState extends State<TabMusic> {
 
 
     DateTime localTime = DateTime.now();
-    logger.d("localTime ${localTime.toUtc()}");
+    // logger.d("localTime ${localTime.toUtc()}");
 
     // Convert local time to UTC using DateFormat
     DateFormat utcFormatter = DateFormat("HH:mm:ss");
-    logger.d("utcFormatter $utcFormatter");
+    // logger.d("utcFormatter $utcFormatter");
 
     String utcTimeString = DateFormat("HH:mm:ss").format(localTime.toUtc());
-    logger.d("utcTimeString $utcTimeString");
+    // logger.d("utcTimeString $utcTimeString");
 
 
 

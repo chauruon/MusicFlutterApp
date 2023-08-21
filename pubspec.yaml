@@ -42,6 +42,7 @@ dependencies:
   crypto: ^3.0.3
   pointycastle: ^3.7.3
   intl: ^0.18.1
+  flutter_dotenv: ^5.1.0
 
   
 
@@ -71,6 +72,7 @@ flutter:
   assets:
     - images/products/
     - images/icon/
+    - .env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

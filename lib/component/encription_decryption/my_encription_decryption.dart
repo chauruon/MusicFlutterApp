@@ -42,7 +42,7 @@ class MyEncriptionDecryption {
     }
   }
 
-  static Future<String> encodePassword(String password, String salt) async {
+  static String encodePassword(String password, String salt) {
     final saltBytes = Uint8List.fromList(utf8.encode(salt));
     final passwordBytes = Uint8List.fromList(utf8.encode(password));
 
